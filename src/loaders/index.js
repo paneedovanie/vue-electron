@@ -1,8 +1,14 @@
-import path from "path";
-global.__root = path.join(__dirname, "../");
-
 import databaseLoader from "./database";
-global.db = databaseLoader();
+import controllerLoader from "./controller";
+import ipcMainLoader from "./ipcMain";
 
-import serviceLoader from "./service";
-global.services = serviceLoader();
+const init = async () => {
+  global.db = databaseLoader();
+
+  const controller = await controllerLoader();
+  await ipcMainLoader(controller);
+
+  db.sync()
+}
+
+init()

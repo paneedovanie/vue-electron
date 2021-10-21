@@ -1,7 +1,8 @@
-const { DataTypes } = require("sequelize");
+const { DataTypes, Model } = require("sequelize");
 
-module.exports = db.define(
-  "User",
+class User extends Model { }
+
+User.init(
   {
     // Model attributes are defined here
     firstName: {
@@ -15,10 +16,12 @@ module.exports = db.define(
     email: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true
     },
     username: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true
     },
     password: {
       type: DataTypes.STRING,
@@ -35,6 +38,7 @@ module.exports = db.define(
     deletedAt: {
       type: DataTypes.DATE,
     },
-  },
-  {}
+  }, { sequelize: db, modelName: 'users' }
 );
+
+module.exports = User
