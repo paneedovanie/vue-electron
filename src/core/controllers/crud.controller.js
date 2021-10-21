@@ -1,23 +1,21 @@
-const CoreController = require("./core.controller")
+const CoreController = require("./core.controller");
 
 module.exports = class extends CoreController {
   constructor() {
-    super()
+    super();
   }
 
   async index() {
-    return this.h.response(async () => {
-      return await this.service.index()
-    })
+    return this.response(async () => {
+      return await this.service.index();
+    });
   }
 
   async create(data) {
-    return this.h.response(async () => {
-      return await this.service.create(data)
-    })
-  }
-
-  trashed() {
-    return 'we'
+    return this.response(async () => {
+      await this.validate(data);
+      // return await this.service.create(data);
+      return null;
+    });
   }
 };

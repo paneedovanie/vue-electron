@@ -1,11 +1,10 @@
-import { Sequelize } from "sequelize";
+const { Sequelize } = require("sequelize");
 
-export default () => {
-  const
-    DB_HOST = process.env.DB_HOST,
+module.exports = () => {
+  const DB_HOST = process.env.DB_HOST,
     DB_USER = process.env.DB_USER,
     DB_PASS = process.env.DB_PASS,
-    DB_NAME = process.env.DB_NAME
+    DB_NAME = process.env.DB_NAME;
 
   return new Sequelize({
     host: DB_HOST,

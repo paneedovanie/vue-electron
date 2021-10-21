@@ -1,10 +1,13 @@
 const { DataTypes, Model } = require("sequelize");
 
-class User extends Model { }
+class User extends Model {}
 
 User.init(
   {
     // Model attributes are defined here
+    // image: {
+    //   type: DataTypes.STRING,
+    // },
     firstName: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -16,12 +19,12 @@ User.init(
     email: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true
+      unique: true,
     },
     username: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true
+      unique: true,
     },
     password: {
       type: DataTypes.STRING,
@@ -38,7 +41,8 @@ User.init(
     deletedAt: {
       type: DataTypes.DATE,
     },
-  }, { sequelize: db, modelName: 'users' }
+  },
+  { sequelize: db, modelName: "users" }
 );
 
-module.exports = User
+module.exports = User;

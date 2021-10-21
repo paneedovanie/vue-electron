@@ -1,6 +1,6 @@
-import databaseLoader from "./database";
-import controllerLoader from "./controller";
-import ipcMainLoader from "./ipcMain";
+const databaseLoader = require("./database"),
+  controllerLoader = require("./controller"),
+  ipcMainLoader = require("./ipcMain");
 
 const init = async () => {
   global.db = databaseLoader();
@@ -8,7 +8,7 @@ const init = async () => {
   const controller = await controllerLoader();
   await ipcMainLoader(controller);
 
-  db.sync()
-}
+  db.sync();
+};
 
-init()
+init();

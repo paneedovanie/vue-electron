@@ -9,7 +9,7 @@
 export default {
   methods: {
     add() {
-      this.request("user.controller@create")
+      this.request("user.controller@create", {})
         .then((response) => {
           console.log(response);
         })
