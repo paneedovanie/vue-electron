@@ -6,9 +6,9 @@ contextBridge.exposeInMainWorld(
     send: (channel, data) => {
       ipcRenderer.send(channel, data);
     },
-    on: (channel, func) => {
+    on: (channel, data) => {
       // Strip event as it includes `sender` and is a security risk
-      ipcRenderer.on(channel, func);
+      ipcRenderer.on(channel, data);
     },
   },
 );

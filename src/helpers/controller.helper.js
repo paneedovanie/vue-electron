@@ -5,6 +5,7 @@ module.exports.response = async (fun) => {
       data: await fun()
     }
   } catch (error) {
+    console.log(error)
     return {
       status: "failed",
       error

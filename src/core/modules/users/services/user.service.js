@@ -1,9 +1,8 @@
-module.exports = class {
-  constructor() {
-    this.model = require("../models/User");
-  }
+const CrudService = require('../../../services/crud.service')
 
-  index() {
-    return this.model.findAll()
+module.exports = class extends CrudService {
+  constructor() {
+    super()
+    this.model = require("../models/User");
   }
 };

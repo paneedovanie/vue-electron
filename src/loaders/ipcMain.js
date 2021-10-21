@@ -6,6 +6,8 @@ export default (controllers) => {
       ControllerObject = new controllers[controllerName],
       functions = Object.getOwnPropertyNames(ControllerObject.__proto__)
 
+    console.log(controllerName, functions)
+
     functions.forEach(fn => {
       if (fn === 'constructor') return
       ipcMain.on(`${controllerName}@${fn}`, async (event, arg) => {
@@ -14,4 +16,6 @@ export default (controllers) => {
       })
     })
   });
+
+  console.log(ipcMain.eventNames())
 }

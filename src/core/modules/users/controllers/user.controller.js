@@ -1,15 +1,10 @@
 const
   UserService = require("../services/user.service"),
-  { response } = require(`../../../../helpers/controller.helper`)
+  CrudController = require("../../../controllers/crud.controller")
 
-module.exports = class {
+module.exports = class extends CrudController {
   constructor() {
+    super()
     this.service = new UserService;
-  }
-
-  async index() {
-    return response(async () => {
-      return await this.service.index()
-    })
   }
 };
