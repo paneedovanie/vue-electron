@@ -20,7 +20,7 @@ export default {
   },
 
   mounted() {
-    this.request("user.controller@index")
+    this.request("user.controller@index", {})
       .then((response) => {
         console.log(response);
       })

@@ -14,12 +14,18 @@ module.exports = class {
     try {
       return {
         status: "success",
-        data: await fun(),
+        data: {
+          data: await fun(),
+        },
       };
     } catch (error) {
       return {
         status: "failed",
-        error: { ...error },
+        error: {
+          name: error.name,
+          message: error.message,
+          details: error.details,
+        },
       };
     }
   }

@@ -17,6 +17,7 @@ Vue.mixin({
         }, 10000);
 
         window.ipc.on(url, (response) => {
+          console.log(response);
           if (response.status === "success") res(response.data);
           else rej(response.error);
 

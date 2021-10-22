@@ -14,8 +14,8 @@ module.exports = class extends CoreController {
   async create(data) {
     return this.response(async () => {
       await this.validate(data);
-      // return await this.service.create(data);
-      return null;
+
+      return await this.service.create(data);
     });
   }
 };

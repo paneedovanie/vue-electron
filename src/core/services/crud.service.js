@@ -6,7 +6,7 @@ module.exports = class extends CoreService {
     this.model = null;
   }
 
-  index() {
+  index(data) {
     return this.model.findAll();
   }
 
